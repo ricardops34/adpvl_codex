@@ -20,6 +20,7 @@ Este repositório adapta para o formato de skills do Codex a proposta do projeto
 - [Uso](#uso)
 - [Contribuicao Desta Adaptacao](#contribuicao-desta-adaptacao)
 - [Creditos e Atribuicao](#creditos-e-atribuicao)
+- [Contato](#contato)
 - [Roadmap](#roadmap)
 - [Licenca](#licenca)
 
@@ -179,6 +180,13 @@ Tambem reconhecemos a contribuicao da comunidade Protheus e PO-UI, incluindo exe
 Quando aplicavel, marcas, nomes comerciais e ativos relacionados ao ecossistema TOTVS pertencem a **TOTVS S.A.** e/ou a seus licenciadores.
 
 Este repositório e independente, de carater educacional e comunitario, sem vinculo oficial com a TOTVS. As referencias a marcas e produtos sao usadas apenas para fins de identificacao, compatibilidade e documentacao tecnica.
+
+## Contato
+
+Para contato sobre este repositório e suas adaptacoes para Codex:
+
+- Ricardo P. S. Patay
+- `ricardops34@hotmail.com`
 
 ## Roadmap
 

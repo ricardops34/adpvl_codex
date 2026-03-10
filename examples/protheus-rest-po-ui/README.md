@@ -11,6 +11,8 @@ examples/protheus-rest-po-ui/
 │   │   └── clientes_rest.prw
 │   └── tlpp/
 │       └── clientes_service.tlpp
+├── config/
+│   └── appserver.ini
 ├── contract/
 │   └── clientes.json
 └── frontend/
@@ -40,6 +42,17 @@ O frontend usa:
 
 O contrato JSON base esta em `contract/clientes.json`.
 
+## AppServer
+
+O exemplo inclui um arquivo modelo em `config/appserver.ini` com:
+
+- `MultiProtocolPort` habilitada
+- `MultiProtocolPortSecure=1`
+- bloco REST basico
+- apontamentos para certificado e chave
+
+Use esse arquivo apenas como base e ajuste portas, caminhos, certificados, ambiente e chaves de acordo com o seu AppServer.
+
 ## Observacoes
 
 - O exemplo e didatico. Ajuste autenticacao, serializacao, URL base e regras de negocio conforme o projeto real.
@@ -52,3 +65,10 @@ Este exemplo foi construido com apoio de referencias da comunidade Protheus e PO
 ## Aviso de Marcas
 
 **TOTVS**, **Protheus**, **PO-UI** e nomes relacionados pertencem aos seus respectivos titulares. Este material e apenas educacional e nao representa documentacao oficial da TOTVS.
+
+## Contato
+
+Para contato sobre esta adaptacao:
+
+- Ricardo P. S. Patay
+- `ricardops34@hotmail.com`
