@@ -1,0 +1,4 @@
+interface:
+  display_name: "Protheus ADVPL Specialist"
+  short_description: "ADVPL/TLPP para TOTVS Protheus"
+  default_prompt: "Use $protheus-advpl-specialist to implement or review ADVPL/TLPP code for TOTVS Protheus."
