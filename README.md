@@ -1,41 +1,108 @@
-# Protheus ADVPL Specialist for Codex
+# advpl_codex
 
-Skill do Codex para desenvolvimento TOTVS Protheus com ADVPL e TLPP.
+![Platform](https://img.shields.io/badge/platform-Codex-blue)
+![TOTVS](https://img.shields.io/badge/TOTVS-Protheus-orange)
+![Language](https://img.shields.io/badge/lang-ADVPL%20%7C%20TLPP-yellow)
+![Status](https://img.shields.io/badge/status-initial-green)
 
-## O que cobre
+Skill do Codex para desenvolvimento no ecossistema **TOTVS Protheus** com foco em **ADVPL** e **TLPP**.
 
-- Geracao de codigo ADVPL e TLPP
-- Migracao de ADVPL procedural para TLPP
-- Debugging de AppServer, runtime, locks e performance
+Este repositório adapta para o formato de skills do Codex a proposta do projeto original **[`advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)**, criado por **Thalys Juvenal**, preservando os devidos créditos e acrescentando uma organização voltada ao uso no Codex.
+
+## Indice
+
+- [Visao Geral](#visao-geral)
+- [Objetivo](#objetivo)
+- [O que esta incluido](#o-que-esta-incluido)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Instalacao](#instalacao)
+- [Uso](#uso)
+- [Contribuicao Desta Adaptacao](#contribuicao-desta-adaptacao)
+- [Creditos e Atribuicao](#creditos-e-atribuicao)
+- [Roadmap](#roadmap)
+- [Licenca](#licenca)
+
+## Visao Geral
+
+O repositório entrega uma skill chamada `protheus-advpl-specialist` para uso no Codex, cobrindo os cenários mais comuns de desenvolvimento Protheus:
+
+- geracao de codigo ADVPL e TLPP
+- migracao de ADVPL procedural para TLPP
+- debugging de erros de compilacao, runtime, locks e performance
 - Embedded SQL com `BeginSQL` / `EndSQL`
-- Referencias de framework Protheus, SX e convencoes gerais
+- referencia pratica para framework Protheus, SX e convencoes de projeto
 
-## Estrutura
+## Objetivo
+
+O objetivo deste projeto nao e substituir o trabalho original, e sim:
+
+1. reaproveitar a ideia e a base conceitual do `advpl-specialist`
+2. converter esse conhecimento para o formato nativo de skills do Codex
+3. facilitar a instalacao e o uso pela comunidade ADVPL/TLPP que trabalha com Codex
+
+## O que esta incluido
+
+### Skill principal
+
+- `skills/protheus-advpl-specialist/SKILL.md`
+
+### Referencias separadas por contexto
+
+- `references/code-generation.md`
+- `references/migration.md`
+- `references/debugging.md`
+- `references/embedded-sql.md`
+- `references/protheus-reference.md`
+
+### Metadados de interface
+
+- `agents/openai.yaml`
+
+### Scripts de instalacao
+
+- `scripts/install.ps1`
+- `scripts/install.sh`
+
+## Estrutura do Projeto
 
 ```text
-skills/
-  protheus-advpl-specialist/
-    SKILL.md
-    agents/openai.yaml
-    references/
+advpl_codex/
+├── README.md
+├── LICENSE
+├── scripts/
+│   ├── install.ps1
+│   └── install.sh
+└── skills/
+    └── protheus-advpl-specialist/
+        ├── SKILL.md
+        ├── agents/
+        │   └── openai.yaml
+        └── references/
+            ├── code-generation.md
+            ├── migration.md
+            ├── debugging.md
+            ├── embedded-sql.md
+            └── protheus-reference.md
 ```
 
-## Instalacao manual
+## Instalacao
+
+### Instalacao manual
 
 Copie a pasta `skills/protheus-advpl-specialist` para:
 
 - Windows: `%USERPROFILE%\\.codex\\skills\\protheus-advpl-specialist`
 - Linux/macOS: `~/.codex/skills/protheus-advpl-specialist`
 
-## Instalacao por script
+### Instalacao por script
 
-### PowerShell
+PowerShell:
 
 ```powershell
 ./scripts/install.ps1
 ```
 
-### Bash
+Bash:
 
 ```bash
 bash ./scripts/install.sh
@@ -45,15 +112,48 @@ bash ./scripts/install.sh
 
 Exemplos de prompts:
 
-- `Use $protheus-advpl-specialist para criar uma User Function de faturamento`
-- `Use $protheus-advpl-specialist para migrar este .prw para TLPP`
-- `Use $protheus-advpl-specialist para revisar este BeginSQL`
-- `Use $protheus-advpl-specialist para diagnosticar erro de RecLock`
+```text
+Use $protheus-advpl-specialist para criar uma User Function de faturamento
+Use $protheus-advpl-specialist para migrar este .prw para TLPP
+Use $protheus-advpl-specialist para revisar este BeginSQL
+Use $protheus-advpl-specialist para diagnosticar erro de RecLock
+Use $protheus-advpl-specialist para explicar uma rotina MVC do Protheus
+```
 
-## Publicacao no GitHub
+## Contribuicao Desta Adaptacao
 
-1. Crie um repositorio novo.
-2. Publique estes arquivos.
-3. Oriente os usuarios a copiar a pasta da skill para `~/.codex/skills/`.
+Esta adaptacao traz algumas contribuicoes especificas para o ecossistema Codex:
 
-Se quiser, voce ainda pode adicionar exemplos reais de `.prw` e `.tlpp` em uma pasta separada do skill.
+- empacotamento no formato de skill reutilizavel do Codex
+- separacao das referencias por tipo de tarefa para reduzir contexto carregado
+- instalacao simplificada por script
+- organizacao voltada ao uso em projetos reais com `.prw`, `.tlpp`, `.ch` e `.th`
+- base inicial para futura expansao com mais conteudo do projeto original
+
+## Creditos e Atribuicao
+
+Este projeto foi inspirado e parcialmente adaptado a partir de:
+
+- Projeto original: [`thalysjuvenal/advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)
+- Autor original: **Thalys Juvenal**
+
+Reconhecemos que a ideia, a estrutura conceitual e parte da organizacao funcional partiram do trabalho original. Esta versao apresenta uma **adaptacao para o Codex**, com foco em:
+
+- formato de distribuicao compatível com skills do Codex
+- instalacao local em `~/.codex/skills`
+- reorganizacao do conteudo para invocacao progressiva
+
+Se o projeto original evoluir, este repositorio pode incorporar novas melhorias mantendo a atribuicao adequada.
+
+## Roadmap
+
+- ampliar a base de referencias com mais exemplos praticos ADVPL/TLPP
+- incluir exemplos reais de MVC, REST e pontos de entrada
+- adicionar documentacao mais detalhada sobre TDN, SX e boas praticas
+- avaliar empacotamento adicional para distribuicao mais simples
+
+## Licenca
+
+Este repositório esta publicado sob a licenca [MIT](LICENSE).
+
+Sempre que reutilizar este material, mantenha tambem os creditos ao projeto original `advpl-specialist` e ao autor **Thalys Juvenal**.
