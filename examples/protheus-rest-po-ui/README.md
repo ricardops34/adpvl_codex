@@ -44,3 +44,11 @@ O contrato JSON base esta em `contract/clientes.json`.
 
 - O exemplo e didatico. Ajuste autenticacao, serializacao, URL base e regras de negocio conforme o projeto real.
 - Os nomes e obrigatoriedades podem variar por versao, configuracao e customizacao. Valide sempre no `SX3` do seu ambiente antes de colocar em producao.
+
+## Creditos
+
+Este exemplo foi construido com apoio de referencias da comunidade Protheus e PO-UI, incluindo materiais e repositorios publicados por [`dan-atilio`](https://github.com/dan-atilio), alem de referencias oficiais do PO-UI e do ecossistema TOTVS.
+
+## Aviso de Marcas
+
+**TOTVS**, **Protheus**, **PO-UI** e nomes relacionados pertencem aos seus respectivos titulares. Este material e apenas educacional e nao representa documentacao oficial da TOTVS.

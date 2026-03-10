@@ -160,6 +160,7 @@ Este projeto foi inspirado e parcialmente adaptado a partir de:
 
 - Projeto original: [`thalysjuvenal/advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)
 - Autor original: **Thalys Juvenal**
+- Referencias praticas de integracao Protheus + PO-UI: [`dan-atilio`](https://github.com/dan-atilio)
 
 Reconhecemos que a ideia, a estrutura conceitual e parte da organizacao funcional partiram do trabalho original. Esta versao apresenta uma **adaptacao para o Codex**, com foco em:
 
@@ -168,6 +169,16 @@ Reconhecemos que a ideia, a estrutura conceitual e parte da organizacao funciona
 - reorganizacao do conteudo para invocacao progressiva
 
 Se o projeto original evoluir, este repositorio pode incorporar novas melhorias mantendo a atribuicao adequada.
+
+Tambem reconhecemos a contribuicao da comunidade Protheus e PO-UI, incluindo exemplos publicos e materiais compartilhados por **dan-atilio**, que ajudam a orientar fluxos praticos de integracao entre backend Protheus, frontend Angular e PO-UI.
+
+## Marcas e Direitos
+
+**TOTVS**, **Protheus**, **PO-UI** e demais nomes de produtos, plataformas, marcas e logotipos mencionados neste repositório pertencem aos seus respectivos titulares.
+
+Quando aplicavel, marcas, nomes comerciais e ativos relacionados ao ecossistema TOTVS pertencem a **TOTVS S.A.** e/ou a seus licenciadores.
+
+Este repositório e independente, de carater educacional e comunitario, sem vinculo oficial com a TOTVS. As referencias a marcas e produtos sao usadas apenas para fins de identificacao, compatibilidade e documentacao tecnica.
 
 ## Roadmap
 
