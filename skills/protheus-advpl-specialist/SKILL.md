@@ -1,6 +1,6 @@
 ---
 name: protheus-advpl-specialist
-description: Specialist for TOTVS Protheus development with ADVPL and TLPP. Use when working on `.prw`, `.tlpp`, `.prx`, `.ch`, `.th` or Protheus-specific code and tasks such as generating routines, MVC, REST APIs, pontos de entrada, embedded SQL, reviewing customizations, migrating legacy ADVPL to TLPP, debugging AppServer/runtime issues, or looking up Protheus framework and SX dictionary conventions.
+description: Specialist for TOTVS Protheus development with ADVPL and TLPP. Use when working on `.prw`, `.tlpp`, `.prx`, `.ch`, `.th` or Protheus-specific code and tasks such as generating routines, MVC, REST APIs, PO-UI integrations, pontos de entrada, embedded SQL, reviewing customizations, migrating legacy ADVPL to TLPP, debugging AppServer/runtime issues, or looking up Protheus framework and SX dictionary conventions.
 ---
 
 # Protheus ADVPL Specialist
@@ -9,7 +9,7 @@ Use this skill as the entry point for Protheus work. Keep the workflow lean: ide
 
 ## Workflow
 
-1. Detect whether the request is primarily code generation, migration, debugging, embedded SQL, or reference lookup.
+1. Detect whether the request is primarily code generation, REST and PO-UI integration, migration, debugging, embedded SQL, or reference lookup.
 2. Read only the matching file in `references/`.
 3. Inspect the current repository before changing code. Prefer existing naming, module prefixes, includes, wrappers, and framework patterns already used by the project.
 4. Preserve Protheus runtime safety:
@@ -22,6 +22,7 @@ Use this skill as the entry point for Protheus work. Keep the workflow lean: ide
 ## Reference Selection
 
 - For new routines, classes, MVC, REST, SOAP, or pontos de entrada, read `references/code-generation.md`.
+- For Protheus REST backend design, contracts, authentication flow, and PO-UI frontend integration, read `references/rest-po-ui.md`.
 - For `.prw` to `.tlpp` modernization or wrapper-based refactoring, read `references/migration.md`.
 - For compilation errors, NIL/type issues, AppServer problems, lock/contention, or slow routines, read `references/debugging.md`.
 - For `BeginSQL`, `EndSQL`, `%table%`, `%notDel%`, `%xfilial%`, `%exp%`, `TCQuery`, or `TCSqlExec`, read `references/embedded-sql.md`.

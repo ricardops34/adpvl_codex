@@ -68,6 +68,7 @@ return lOk
 - Prefer the REST style already used by the project: annotation-based TLPP or legacy `WsRestFul`.
 - Validate payloads explicitly.
 - Normalize responses and error handling instead of returning raw internal exceptions.
+- When the API is intended for a PO-UI frontend, also read `references/rest-po-ui.md`.
 
 ## Ponto de Entrada Guidance
 

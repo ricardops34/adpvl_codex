@@ -5,7 +5,7 @@
 ![Language](https://img.shields.io/badge/lang-ADVPL%20%7C%20TLPP-yellow)
 ![Status](https://img.shields.io/badge/status-initial-green)
 
-Skill do Codex para desenvolvimento no ecossistema **TOTVS Protheus** com foco em **ADVPL** e **TLPP**.
+Skill do Codex para desenvolvimento no ecossistema **TOTVS Protheus** com foco em **ADVPL**, **TLPP**, **API REST** e integrações com **PO-UI**.
 
 Este repositório adapta para o formato de skills do Codex a proposta do projeto original **[`advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)**, criado por **Thalys Juvenal**, preservando os devidos créditos e acrescentando uma organização voltada ao uso no Codex.
 
@@ -27,6 +27,8 @@ Este repositório adapta para o formato de skills do Codex a proposta do projeto
 O repositório entrega uma skill chamada `protheus-advpl-specialist` para uso no Codex, cobrindo os cenários mais comuns de desenvolvimento Protheus:
 
 - geracao de codigo ADVPL e TLPP
+- desenvolvimento de API REST em ADVPL e TLPP
+- integracao de backend Protheus com frontend PO-UI
 - migracao de ADVPL procedural para TLPP
 - debugging de erros de compilacao, runtime, locks e performance
 - Embedded SQL com `BeginSQL` / `EndSQL`
@@ -53,6 +55,7 @@ O objetivo deste projeto nao e substituir o trabalho original, e sim:
 - `references/debugging.md`
 - `references/embedded-sql.md`
 - `references/protheus-reference.md`
+- `references/rest-po-ui.md`
 
 ### Metadados de interface
 
@@ -82,7 +85,8 @@ advpl_codex/
             ├── migration.md
             ├── debugging.md
             ├── embedded-sql.md
-            └── protheus-reference.md
+            ├── protheus-reference.md
+            └── rest-po-ui.md
 ```
 
 ## Instalacao
@@ -118,6 +122,8 @@ Use $protheus-advpl-specialist para migrar este .prw para TLPP
 Use $protheus-advpl-specialist para revisar este BeginSQL
 Use $protheus-advpl-specialist para diagnosticar erro de RecLock
 Use $protheus-advpl-specialist para explicar uma rotina MVC do Protheus
+Use $protheus-advpl-specialist para criar uma API REST em ADVPL para consumo no PO-UI
+Use $protheus-advpl-specialist para desenhar contrato backend Protheus + frontend PO-UI
 ```
 
 ## Contribuicao Desta Adaptacao
@@ -128,6 +134,7 @@ Esta adaptacao traz algumas contribuicoes especificas para o ecossistema Codex:
 - separacao das referencias por tipo de tarefa para reduzir contexto carregado
 - instalacao simplificada por script
 - organizacao voltada ao uso em projetos reais com `.prw`, `.tlpp`, `.ch` e `.th`
+- suporte inicial para backend REST Protheus e frontend PO-UI
 - base inicial para futura expansao com mais conteudo do projeto original
 
 ## Creditos e Atribuicao
@@ -148,6 +155,7 @@ Se o projeto original evoluir, este repositorio pode incorporar novas melhorias 
 ## Roadmap
 
 - ampliar a base de referencias com mais exemplos praticos ADVPL/TLPP
+- ampliar a cobertura de REST Protheus e PO-UI com exemplos completos
 - incluir exemplos reais de MVC, REST e pontos de entrada
 - adicionar documentacao mais detalhada sobre TDN, SX e boas praticas
 - avaliar empacotamento adicional para distribuicao mais simples
