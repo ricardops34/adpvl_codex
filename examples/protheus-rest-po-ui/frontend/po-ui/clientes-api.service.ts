@@ -7,7 +7,19 @@ export interface Cliente {
   codigo: string;
   loja: string;
   nome: string;
+  nomeReduzido: string;
+  tipo: string;
+  pessoa: string;
   documento: string;
+  inscricao: string;
+  endereco: string;
+  bairro: string;
+  municipio: string;
+  estado: string;
+  cep: string;
+  ddd: string;
+  telefone: string;
+  email: string;
   ativo: boolean;
 }
 

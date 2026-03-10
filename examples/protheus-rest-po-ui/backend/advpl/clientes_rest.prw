@@ -26,7 +26,10 @@ WsMethod GetList WsRestFul ClientesRest
 
     Begin Sequence
         BeginSQL Alias cAlias
-            SELECT SA1.A1_COD, SA1.A1_LOJA, SA1.A1_NOME, SA1.A1_CGC
+            SELECT SA1.A1_COD, SA1.A1_LOJA, SA1.A1_NOME, SA1.A1_NREDUZ,
+                   SA1.A1_TIPO, SA1.A1_PESSOA, SA1.A1_CGC, SA1.A1_INSCR,
+                   SA1.A1_END, SA1.A1_BAIRRO, SA1.A1_MUN, SA1.A1_EST,
+                   SA1.A1_CEP, SA1.A1_DDD, SA1.A1_TEL, SA1.A1_EMAIL
             FROM %table:SA1% SA1
             WHERE SA1.%notDel%
               AND SA1.A1_FILIAL = %xfilial:SA1%
@@ -41,7 +44,19 @@ WsMethod GetList WsRestFul ClientesRest
                 "codigo"    => (cAlias)->A1_COD, ;
                 "loja"      => (cAlias)->A1_LOJA, ;
                 "nome"      => AllTrim((cAlias)->A1_NOME), ;
+                "nomeReduzido" => AllTrim((cAlias)->A1_NREDUZ), ;
+                "tipo"      => AllTrim((cAlias)->A1_TIPO), ;
+                "pessoa"    => AllTrim((cAlias)->A1_PESSOA), ;
                 "documento" => AllTrim((cAlias)->A1_CGC), ;
+                "inscricao" => AllTrim((cAlias)->A1_INSCR), ;
+                "endereco"  => AllTrim((cAlias)->A1_END), ;
+                "bairro"    => AllTrim((cAlias)->A1_BAIRRO), ;
+                "municipio" => AllTrim((cAlias)->A1_MUN), ;
+                "estado"    => AllTrim((cAlias)->A1_EST), ;
+                "cep"       => AllTrim((cAlias)->A1_CEP), ;
+                "ddd"       => AllTrim((cAlias)->A1_DDD), ;
+                "telefone"  => AllTrim((cAlias)->A1_TEL), ;
+                "email"     => AllTrim((cAlias)->A1_EMAIL), ;
                 "ativo"     => .T. ;
             })
             (cAlias)->(DbSkip())
@@ -72,7 +87,7 @@ WsMethod GetById WsRestFul ClientesRest
         DbSetOrder(1)
 
         If SA1->(DbSeek(xFilial("SA1") + cCodigo + cLoja))
-            cJson := JsonClienteDetail(cCodigo, cLoja, SA1->A1_NOME, SA1->A1_CGC)
+            cJson := JsonClienteDetail(cCodigo, cLoja, SA1->A1_NOME, SA1->A1_NREDUZ, SA1->A1_TIPO, SA1->A1_PESSOA, SA1->A1_CGC, SA1->A1_INSCR, SA1->A1_END, SA1->A1_BAIRRO, SA1->A1_MUN, SA1->A1_EST, SA1->A1_CEP, SA1->A1_DDD, SA1->A1_TEL, SA1->A1_EMAIL)
             ::SetResponse(cJson)
         Else
             ::SetStatus(404)
@@ -90,7 +105,8 @@ Return .T.
 WsMethod Post WsRestFul ClientesRest
     Local cBody := ::GetContent()
 
-    // Substitua por desserializacao real e gravacao em SA1 conforme as regras do projeto.
+    // Substitua por desserializacao real e gravacao em SA1 via MATA030/MsExecAuto
+    // respeitando os campos padrao do SX3 de SA1 e as validacoes do ambiente.
     ::SetStatus(201)
     ::SetResponse(cBody)
 Return .T.
@@ -98,7 +114,7 @@ Return .T.
 WsMethod Put WsRestFul ClientesRest
     Local cBody := ::GetContent()
 
-    // Substitua por update real em SA1 conforme as regras do projeto.
+    // Substitua por update real em SA1 respeitando SX3, validacoes e gatilhos.
     ::SetResponse(cBody)
 Return .T.
 
@@ -112,13 +128,25 @@ Static Function JsonClientesList(aItems, nPage, nPageSize)
     cJson += '}'
 Return cJson
 
-Static Function JsonClienteDetail(cCodigo, cLoja, cNome, cDocumento)
+Static Function JsonClienteDetail(cCodigo, cLoja, cNome, cNomeRed, cTipo, cPessoa, cDocumento, cInscr, cEndereco, cBairro, cMunicipio, cEstado, cCep, cDdd, cTelefone, cEmail)
     Local cJson := '{'
     cJson += '"id":"' + cCodigo + "|" + cLoja + '",'
     cJson += '"codigo":"' + cCodigo + '",'
     cJson += '"loja":"' + cLoja + '",'
     cJson += '"nome":"' + AllTrim(cNome) + '",'
+    cJson += '"nomeReduzido":"' + AllTrim(cNomeRed) + '",'
+    cJson += '"tipo":"' + AllTrim(cTipo) + '",'
+    cJson += '"pessoa":"' + AllTrim(cPessoa) + '",'
     cJson += '"documento":"' + AllTrim(cDocumento) + '",'
+    cJson += '"inscricao":"' + AllTrim(cInscr) + '",'
+    cJson += '"endereco":"' + AllTrim(cEndereco) + '",'
+    cJson += '"bairro":"' + AllTrim(cBairro) + '",'
+    cJson += '"municipio":"' + AllTrim(cMunicipio) + '",'
+    cJson += '"estado":"' + AllTrim(cEstado) + '",'
+    cJson += '"cep":"' + AllTrim(cCep) + '",'
+    cJson += '"ddd":"' + AllTrim(cDdd) + '",'
+    cJson += '"telefone":"' + AllTrim(cTelefone) + '",'
+    cJson += '"email":"' + AllTrim(cEmail) + '",'
     cJson += '"ativo":true'
     cJson += '}'
 Return cJson

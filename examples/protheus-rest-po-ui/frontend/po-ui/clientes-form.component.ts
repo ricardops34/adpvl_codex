@@ -24,12 +24,42 @@ export class ClientesFormComponent implements OnInit {
     { property: 'codigo', label: 'Codigo', required: true },
     { property: 'loja', label: 'Loja', required: true },
     { property: 'nome', label: 'Nome', required: true },
+    { property: 'nomeReduzido', label: 'Nome Reduzido', required: true },
+    {
+      property: 'tipo',
+      label: 'Tipo',
+      required: true,
+      options: [
+        { label: 'Consumidor final', value: 'F' },
+        { label: 'Revenda', value: 'R' },
+      ],
+    },
+    {
+      property: 'pessoa',
+      label: 'Pessoa',
+      required: true,
+      options: [
+        { label: 'Fisica', value: 'F' },
+        { label: 'Juridica', value: 'J' },
+      ],
+    },
     { property: 'documento', label: 'Documento' },
+    { property: 'inscricao', label: 'Inscricao Estadual' },
+    { property: 'endereco', label: 'Endereco', required: true },
+    { property: 'bairro', label: 'Bairro', required: true },
+    { property: 'municipio', label: 'Municipio', required: true },
+    { property: 'estado', label: 'UF', required: true, minLength: 2, maxLength: 2 },
+    { property: 'cep', label: 'CEP' },
+    { property: 'ddd', label: 'DDD' },
+    { property: 'telefone', label: 'Telefone' },
+    { property: 'email', label: 'E-mail' },
     { property: 'ativo', label: 'Ativo', boolean: true },
   ];
 
   clienteId = '';
   value: Record<string, unknown> = {
+    tipo: 'F',
+    pessoa: 'J',
     ativo: true,
   };
 

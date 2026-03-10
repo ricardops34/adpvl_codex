@@ -39,7 +39,10 @@ method list(cSearch as character, nPage as numeric, nPageSize as numeric) class 
 
     begin sequence
         BeginSQL Alias cAlias
-            SELECT SA1.A1_COD, SA1.A1_LOJA, SA1.A1_NOME, SA1.A1_CGC
+            SELECT SA1.A1_COD, SA1.A1_LOJA, SA1.A1_NOME, SA1.A1_NREDUZ,
+                   SA1.A1_TIPO, SA1.A1_PESSOA, SA1.A1_CGC, SA1.A1_INSCR,
+                   SA1.A1_END, SA1.A1_BAIRRO, SA1.A1_MUN, SA1.A1_EST,
+                   SA1.A1_CEP, SA1.A1_DDD, SA1.A1_TEL, SA1.A1_EMAIL
             FROM %table:SA1% SA1
             WHERE SA1.%notDel%
               AND SA1.A1_FILIAL = %xfilial:SA1%
@@ -54,7 +57,19 @@ method list(cSearch as character, nPage as numeric, nPageSize as numeric) class 
                 "codigo"    => (cAlias)->A1_COD, ;
                 "loja"      => (cAlias)->A1_LOJA, ;
                 "nome"      => alltrim((cAlias)->A1_NOME), ;
+                "nomeReduzido" => alltrim((cAlias)->A1_NREDUZ), ;
+                "tipo"      => alltrim((cAlias)->A1_TIPO), ;
+                "pessoa"    => alltrim((cAlias)->A1_PESSOA), ;
                 "documento" => alltrim((cAlias)->A1_CGC), ;
+                "inscricao" => alltrim((cAlias)->A1_INSCR), ;
+                "endereco"  => alltrim((cAlias)->A1_END), ;
+                "bairro"    => alltrim((cAlias)->A1_BAIRRO), ;
+                "municipio" => alltrim((cAlias)->A1_MUN), ;
+                "estado"    => alltrim((cAlias)->A1_EST), ;
+                "cep"       => alltrim((cAlias)->A1_CEP), ;
+                "ddd"       => alltrim((cAlias)->A1_DDD), ;
+                "telefone"  => alltrim((cAlias)->A1_TEL), ;
+                "email"     => alltrim((cAlias)->A1_EMAIL), ;
                 "ativo"     => .T. ;
             })
             (cAlias)->(DbSkip())
@@ -86,7 +101,19 @@ method getById(cId as character) class ClientesController
             cJson += '"codigo":"' + cCodigo + '",'
             cJson += '"loja":"' + cLoja + '",'
             cJson += '"nome":"' + alltrim(SA1->A1_NOME) + '",'
+            cJson += '"nomeReduzido":"' + alltrim(SA1->A1_NREDUZ) + '",'
+            cJson += '"tipo":"' + alltrim(SA1->A1_TIPO) + '",'
+            cJson += '"pessoa":"' + alltrim(SA1->A1_PESSOA) + '",'
             cJson += '"documento":"' + alltrim(SA1->A1_CGC) + '",'
+            cJson += '"inscricao":"' + alltrim(SA1->A1_INSCR) + '",'
+            cJson += '"endereco":"' + alltrim(SA1->A1_END) + '",'
+            cJson += '"bairro":"' + alltrim(SA1->A1_BAIRRO) + '",'
+            cJson += '"municipio":"' + alltrim(SA1->A1_MUN) + '",'
+            cJson += '"estado":"' + alltrim(SA1->A1_EST) + '",'
+            cJson += '"cep":"' + alltrim(SA1->A1_CEP) + '",'
+            cJson += '"ddd":"' + alltrim(SA1->A1_DDD) + '",'
+            cJson += '"telefone":"' + alltrim(SA1->A1_TEL) + '",'
+            cJson += '"email":"' + alltrim(SA1->A1_EMAIL) + '",'
             cJson += '"ativo":true'
             cJson += '}'
         else
@@ -101,11 +128,11 @@ method getById(cId as character) class ClientesController
 return cJson
 
 method create(cBody as character) class ClientesController
-    // Troque este retorno pela desserializacao e gravacao real.
+    // Troque este retorno pela gravacao real respeitando SX3, validacoes e gatilhos de SA1.
 return cBody
 
 method update(cId as character, cBody as character) class ClientesController
-    // Troque este retorno pelo update real.
+    // Troque este retorno pelo update real respeitando SX3 e regras do ambiente.
 return cBody
 
 method buildListResponse(aItems as array, nPage as numeric, nPageSize as numeric) class ClientesController

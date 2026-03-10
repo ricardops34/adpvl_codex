@@ -25,7 +25,10 @@ export class ClientesListComponent implements OnInit {
     { property: 'codigo', label: 'Codigo' },
     { property: 'loja', label: 'Loja' },
     { property: 'nome', label: 'Nome' },
+    { property: 'nomeReduzido', label: 'Nome Reduzido' },
     { property: 'documento', label: 'Documento' },
+    { property: 'municipio', label: 'Municipio' },
+    { property: 'estado', label: 'UF' },
   ];
 
   items: Cliente[] = [];
