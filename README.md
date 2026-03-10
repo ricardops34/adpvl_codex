@@ -16,6 +16,7 @@ Este repositório adapta para o formato de skills do Codex a proposta do projeto
 - [O que esta incluido](#o-que-esta-incluido)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Exemplo Fim a Fim](#exemplo-fim-a-fim)
+- [Referencias Recomendadas](#referencias-recomendadas)
 - [Instalacao](#instalacao)
 - [Uso](#uso)
 - [Contribuicao Desta Adaptacao](#contribuicao-desta-adaptacao)
@@ -107,6 +108,16 @@ O repositório agora inclui um exemplo completo em `examples/protheus-rest-po-ui
 
 Esse exemplo foi pensado como material de estudo e como base para adaptar em projetos reais.
 
+## Referencias Recomendadas
+
+Para evoluir os exemplos deste repositório, estas sao as referencias mais importantes:
+
+- Documentacao oficial PO-UI Getting Started: https://po-ui.io/guides/getting-started
+- Repositorio oficial PO-UI Angular: https://github.com/po-ui/po-angular
+- Exemplo oficial PO-UI Sample Conference: https://github.com/po-ui/po-sample-conference
+- Documentacao oficial TOTVS sobre `FwCallApp`: https://tdn.totvs.com/display/public/framework/FwCallApp+-+Abrindo+aplicativos+Web+no+Protheus
+- Exemplo comunitario de CRUD com PO-UI e Protheus: https://sempreju.com.br/crud-fornecedor-usando-po-uiangular-e-erp-protheus-part-1/
+
 ## Instalacao
 
 ### Instalacao manual
@@ -162,6 +173,9 @@ Este projeto foi inspirado e parcialmente adaptado a partir de:
 - Projeto original: [`thalysjuvenal/advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)
 - Autor original: **Thalys Juvenal**
 - Referencias praticas de integracao Protheus + PO-UI: [`dan-atilio`](https://github.com/dan-atilio)
+- Referencias oficiais PO-UI: [`po-ui/po-angular`](https://github.com/po-ui/po-angular) e [`po-ui/po-sample-conference`](https://github.com/po-ui/po-sample-conference)
+- Referencia oficial TOTVS para abertura de apps web no Protheus via `FwCallApp`: [TDN Framework](https://tdn.totvs.com/display/public/framework/FwCallApp+-+Abrindo+aplicativos+Web+no+Protheus)
+- Referencia comunitaria adicional de CRUD com Protheus + PO-UI: [Sem Preju](https://sempreju.com.br/crud-fornecedor-usando-po-uiangular-e-erp-protheus-part-1/)
 
 Reconhecemos que a ideia, a estrutura conceitual e parte da organizacao funcional partiram do trabalho original. Esta versao apresenta uma **adaptacao para o Codex**, com foco em:
 

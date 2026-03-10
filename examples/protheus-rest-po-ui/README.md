@@ -53,6 +53,23 @@ O exemplo inclui um arquivo modelo em `config/appserver.ini` com:
 
 Use esse arquivo apenas como base e ajuste portas, caminhos, certificados, ambiente e chaves de acordo com o seu AppServer.
 
+## Referencias Recomendadas
+
+- PO-UI Getting Started: https://po-ui.io/guides/getting-started
+- PO-UI Angular: https://github.com/po-ui/po-angular
+- PO-UI Sample Conference: https://github.com/po-ui/po-sample-conference
+- TOTVS `FwCallApp`: https://tdn.totvs.com/display/public/framework/FwCallApp+-+Abrindo+aplicativos+Web+no+Protheus
+- Exemplo comunitario de CRUD com PO-UI e Protheus: https://sempreju.com.br/crud-fornecedor-usando-po-uiangular-e-erp-protheus-part-1/
+
+## Notas de Integracao com FwCallApp
+
+Ao embarcar um frontend PO-UI dentro do Protheus via `FwCallApp`, considere estes pontos da documentacao oficial da TOTVS:
+
+- em ambientes atualizados, a configuracao com `App_Environment` em `[General]` passa a ser central para o fluxo
+- o pre-carregamento grava o token em `sessionStorage['ERPTOKEN']`
+- o `appconfig.json` pode definir `api_baseUrl`, e a `FwCallApp` pode ajustar esse valor dinamicamente
+- o frontend deve trabalhar com endpoints relativos quando o fluxo estiver integrado ao pre-carregamento do Protheus
+
 ## Observacoes
 
 - O exemplo e didatico. Ajuste autenticacao, serializacao, URL base e regras de negocio conforme o projeto real.
