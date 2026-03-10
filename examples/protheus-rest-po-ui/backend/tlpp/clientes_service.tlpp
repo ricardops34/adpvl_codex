@@ -1,0 +1,127 @@
+#Include "tlpp-core.th"
+#Include "tlpp-rest.th"
+
+namespace custom.cadastro.clientes
+
+@restcontroller("/api/clientes")
+class ClientesController
+
+    public method new() as object
+
+    @get("/")
+    public method list(cSearch as character, nPage as numeric, nPageSize as numeric) as character
+
+    @get("/{id}")
+    public method getById(cId as character) as character
+
+    @post("/")
+    public method create(cBody as character) as character
+
+    @put("/{id}")
+    public method update(cId as character, cBody as character) as character
+
+    private method buildListResponse(aItems as array, nPage as numeric, nPageSize as numeric) as character
+    private method buildError(cCode as character, cMessage as character) as character
+
+endclass
+
+method new() class ClientesController
+return self
+
+method list(cSearch as character, nPage as numeric, nPageSize as numeric) class ClientesController
+    local aItems := {}
+    local cAlias := GetNextAlias()
+    local aArea  := GetArea()
+    local cTerm  := alltrim(iif(valtype(cSearch) == "C", cSearch, ""))
+
+    default nPage := 1
+    default nPageSize := 20
+
+    begin sequence
+        BeginSQL Alias cAlias
+            SELECT SA1.A1_COD, SA1.A1_LOJA, SA1.A1_NOME, SA1.A1_CGC
+            FROM %table:SA1% SA1
+            WHERE SA1.%notDel%
+              AND SA1.A1_FILIAL = %xfilial:SA1%
+              AND (%exp:Empty(cTerm)% OR SA1.A1_NOME LIKE %exp:'%' + cTerm + '%'%)
+            ORDER BY SA1.A1_COD, SA1.A1_LOJA
+        EndSQL
+
+        DbSelectArea(cAlias)
+        while !(cAlias)->(Eof())
+            aAdd(aItems, { ;
+                "id"        => (cAlias)->A1_COD + "|" + (cAlias)->A1_LOJA, ;
+                "codigo"    => (cAlias)->A1_COD, ;
+                "loja"      => (cAlias)->A1_LOJA, ;
+                "nome"      => alltrim((cAlias)->A1_NOME), ;
+                "documento" => alltrim((cAlias)->A1_CGC), ;
+                "ativo"     => .T. ;
+            })
+            (cAlias)->(DbSkip())
+        enddo
+        (cAlias)->(DbCloseArea())
+
+    recover using oError
+        RestArea(aArea)
+    return ::buildError("CLIENTES_LISTA_ERRO", oError:Description)
+    end sequence
+
+    RestArea(aArea)
+return ::buildListResponse(aItems, nPage, nPageSize)
+
+method getById(cId as character) class ClientesController
+    local aIdParts := StrTokArr(cId, "|")
+    local cCodigo  := iif(len(aIdParts) >= 1, aIdParts[1], "")
+    local cLoja    := iif(len(aIdParts) >= 2, aIdParts[2], "01")
+    local cJson    := ""
+    local aArea    := GetArea()
+
+    begin sequence
+        DbSelectArea("SA1")
+        DbSetOrder(1)
+
+        if SA1->(DbSeek(xFilial("SA1") + cCodigo + cLoja))
+            cJson := '{'
+            cJson += '"id":"' + cCodigo + "|" + cLoja + '",'
+            cJson += '"codigo":"' + cCodigo + '",'
+            cJson += '"loja":"' + cLoja + '",'
+            cJson += '"nome":"' + alltrim(SA1->A1_NOME) + '",'
+            cJson += '"documento":"' + alltrim(SA1->A1_CGC) + '",'
+            cJson += '"ativo":true'
+            cJson += '}'
+        else
+            cJson := ::buildError("CLIENTE_NAO_ENCONTRADO", "Cliente nao encontrado")
+        endif
+
+    recover using oError
+        cJson := ::buildError("CLIENTE_DETALHE_ERRO", oError:Description)
+    end sequence
+
+    RestArea(aArea)
+return cJson
+
+method create(cBody as character) class ClientesController
+    // Troque este retorno pela desserializacao e gravacao real.
+return cBody
+
+method update(cId as character, cBody as character) class ClientesController
+    // Troque este retorno pelo update real.
+return cBody
+
+method buildListResponse(aItems as array, nPage as numeric, nPageSize as numeric) class ClientesController
+    local cJson := '{'
+    cJson += '"items":' + FWJsonSerialize(aItems) + ','
+    cJson += '"hasNext":false,'
+    cJson += '"page":' + cValToChar(nPage) + ','
+    cJson += '"pageSize":' + cValToChar(nPageSize) + ','
+    cJson += '"total":' + cValToChar(len(aItems))
+    cJson += '}'
+return cJson
+
+method buildError(cCode as character, cMessage as character) class ClientesController
+    local cJson := '{'
+    cJson += '"error":true,'
+    cJson += '"code":"' + cCode + '",'
+    cJson += '"message":"' + cMessage + '"'
+    cJson += '}'
+return cJson

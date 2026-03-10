@@ -15,6 +15,7 @@ Este repositório adapta para o formato de skills do Codex a proposta do projeto
 - [Objetivo](#objetivo)
 - [O que esta incluido](#o-que-esta-incluido)
 - [Estrutura do Projeto](#estrutura-do-projeto)
+- [Exemplo Fim a Fim](#exemplo-fim-a-fim)
 - [Instalacao](#instalacao)
 - [Uso](#uso)
 - [Contribuicao Desta Adaptacao](#contribuicao-desta-adaptacao)
@@ -75,6 +76,11 @@ advpl_codex/
 ├── scripts/
 │   ├── install.ps1
 │   └── install.sh
+├── examples/
+│   └── protheus-rest-po-ui/
+│       ├── backend/
+│       ├── contract/
+│       └── frontend/
 └── skills/
     └── protheus-advpl-specialist/
         ├── SKILL.md
@@ -88,6 +94,17 @@ advpl_codex/
             ├── protheus-reference.md
             └── rest-po-ui.md
 ```
+
+## Exemplo Fim a Fim
+
+O repositório agora inclui um exemplo completo em `examples/protheus-rest-po-ui/`:
+
+- backend REST em ADVPL
+- backend REST em TLPP
+- contrato JSON para `clientes`
+- frontend Angular com PO-UI para listagem e formulario
+
+Esse exemplo foi pensado como material de estudo e como base para adaptar em projetos reais.
 
 ## Instalacao
 
@@ -157,6 +174,7 @@ Se o projeto original evoluir, este repositorio pode incorporar novas melhorias 
 - ampliar a base de referencias com mais exemplos praticos ADVPL/TLPP
 - ampliar a cobertura de REST Protheus e PO-UI com exemplos completos
 - incluir exemplos reais de MVC, REST e pontos de entrada
+- enriquecer o exemplo fim a fim com autenticacao e fluxos de exclusao
 - adicionar documentacao mais detalhada sobre TDN, SX e boas praticas
 - avaliar empacotamento adicional para distribuicao mais simples
 

@@ -1,0 +1,38 @@
+{
+  "listResponse": {
+    "items": [
+      {
+        "id": "000001|01",
+        "codigo": "000001",
+        "loja": "01",
+        "nome": "Cliente Exemplo",
+        "documento": "12345678000199",
+        "ativo": true
+      }
+    ],
+    "hasNext": false,
+    "page": 1,
+    "pageSize": 20,
+    "total": 1
+  },
+  "detailResponse": {
+    "id": "000001|01",
+    "codigo": "000001",
+    "loja": "01",
+    "nome": "Cliente Exemplo",
+    "documento": "12345678000199",
+    "ativo": true
+  },
+  "saveRequest": {
+    "codigo": "000001",
+    "loja": "01",
+    "nome": "Cliente Exemplo",
+    "documento": "12345678000199",
+    "ativo": true
+  },
+  "errorResponse": {
+    "error": true,
+    "code": "CLIENTE_NAO_ENCONTRADO",
+    "message": "Cliente nao encontrado"
+  }
+}

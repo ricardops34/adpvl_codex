@@ -10,6 +10,15 @@ Use this reference when building a Protheus backend in ADVPL or TLPP that will b
 - authentication and authorization flow between frontend and backend
 - response shaping for PO-UI tables, forms, and notifications
 
+## Repository Example
+
+Use `examples/protheus-rest-po-ui/` in this repository as the default worked example:
+
+- `backend/advpl/clientes_rest.prw` for legacy-style REST in ADVPL
+- `backend/tlpp/clientes_service.tlpp` for TLPP-oriented REST
+- `contract/clientes.json` for the payload contract
+- `frontend/po-ui/` for Angular + PO-UI consumption
+
 ## Architecture Guidance
 
 - Keep business rules in Protheus service routines, not in the PO-UI frontend.
