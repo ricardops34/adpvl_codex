@@ -2,17 +2,21 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE="$REPO_ROOT/skills/protheus-advpl-specialist"
+SKILLS_ROOT="$REPO_ROOT/skills"
 TARGET_ROOT="${HOME}/.codex/skills"
-TARGET="$TARGET_ROOT/protheus-advpl-specialist"
 
-if [[ ! -d "$SOURCE" ]]; then
-  echo "Skill source not found: $SOURCE" >&2
+if [[ ! -d "$SKILLS_ROOT" ]]; then
+  echo "Skills source not found: $SKILLS_ROOT" >&2
   exit 1
 fi
 
 mkdir -p "$TARGET_ROOT"
-rm -rf "$TARGET"
-cp -R "$SOURCE" "$TARGET"
 
-echo "Installed skill to: $TARGET"
+for SOURCE in "$SKILLS_ROOT"/*; do
+  [[ -d "$SOURCE" ]] || continue
+  NAME="$(basename "$SOURCE")"
+  TARGET="$TARGET_ROOT/$NAME"
+  rm -rf "$TARGET"
+  cp -R "$SOURCE" "$TARGET"
+  echo "Installed skill to: $TARGET"
+done

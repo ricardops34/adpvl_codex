@@ -1,20 +1,23 @@
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$source = Join-Path $repoRoot "skills/protheus-advpl-specialist"
 $targetRoot = Join-Path $HOME ".codex/skills"
-$target = Join-Path $targetRoot "protheus-advpl-specialist"
+$skillsRoot = Join-Path $repoRoot "skills"
 
-if (-not (Test-Path $source)) {
-    throw "Skill source not found: $source"
+if (-not (Test-Path $skillsRoot)) {
+    throw "Skills source not found: $skillsRoot"
 }
 
 New-Item -ItemType Directory -Force -Path $targetRoot | Out-Null
 
-if (Test-Path $target) {
-    Remove-Item -Recurse -Force $target
+Get-ChildItem $skillsRoot -Directory | ForEach-Object {
+    $source = $_.FullName
+    $target = Join-Path $targetRoot $_.Name
+
+    if (Test-Path $target) {
+        Remove-Item -Recurse -Force $target
+    }
+
+    Copy-Item -Recurse -Force $source $target
+    Write-Host "Installed skill to: $target"
 }
-
-Copy-Item -Recurse -Force $source $target
-
-Write-Host "Installed skill to: $target"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "MVC Protheus"
+  short_description: "MenuDef, ModelDef e ViewDef"

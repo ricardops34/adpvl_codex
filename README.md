@@ -3,131 +3,91 @@
 ![Platform](https://img.shields.io/badge/platform-Codex-blue)
 ![TOTVS](https://img.shields.io/badge/TOTVS-Protheus-orange)
 ![Language](https://img.shields.io/badge/lang-ADVPL%20%7C%20TLPP-yellow)
-![Status](https://img.shields.io/badge/status-initial-green)
+![Status](https://img.shields.io/badge/status-active-green)
 
-Skill do Codex para desenvolvimento no ecossistema **TOTVS Protheus** com foco em **ADVPL**, **TLPP**, **API REST** e integrações com **PO-UI**.
+Colecao de skills para Codex voltada ao ecossistema TOTVS Protheus, com foco em ADVPL, TLPP, MVC, REST, PO-UI, debugging, SQL e testes.
 
-Este repositório adapta para o formato de skills do Codex a proposta do projeto original **[`advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)**, criado por **Thalys Juvenal**, preservando os devidos créditos e acrescentando uma organização voltada ao uso no Codex.
-
-## Indice
-
-- [Visao Geral](#visao-geral)
-- [Objetivo](#objetivo)
-- [O que esta incluido](#o-que-esta-incluido)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Exemplo Fim a Fim](#exemplo-fim-a-fim)
-- [Referencias Recomendadas](#referencias-recomendadas)
-- [Instalacao](#instalacao)
-- [Uso](#uso)
-- [Contribuicao Desta Adaptacao](#contribuicao-desta-adaptacao)
-- [Creditos e Atribuicao](#creditos-e-atribuicao)
-- [Contato](#contato)
-- [Roadmap](#roadmap)
-- [Licenca](#licenca)
+Este repositorio adapta para o formato de skills do Codex a proposta do projeto original [`advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist), criado por Thalys Juvenal, e tambem incorpora referencias praticas do projeto local `po-ui/Financeiro/po-boleto` para os cenarios de PO-UI + Protheus.
 
 ## Visao Geral
 
-O repositório entrega uma skill chamada `protheus-advpl-specialist` para uso no Codex, cobrindo os cenários mais comuns de desenvolvimento Protheus:
+O repositorio agora entrega um conjunto de skills especializados para uso incremental no Codex. Em vez de uma unica skill grande, a base foi separada por contexto para facilitar o disparo correto e reduzir contexto desnecessario.
 
-- geracao de codigo ADVPL e TLPP
-- desenvolvimento de API REST em ADVPL e TLPP
-- integracao de backend Protheus com frontend PO-UI
-- migracao de ADVPL procedural para TLPP
-- debugging de erros de compilacao, runtime, locks e performance
-- Embedded SQL com `BeginSQL` / `EndSQL`
-- referencia pratica para framework Protheus, SX e convencoes de projeto
+Skills atualmente incluidos:
 
-## Objetivo
+- `advpl-protheus`
+- `advpl-debugging`
+- `advpl-code-review`
+- `protheus-reference`
+- `embedded-sql`
+- `mvc-protheus`
+- `pontos-de-entrada-protheus`
+- `probat-testing`
+- `rest-protheus`
+- `tlpp-protheus`
+- `po-ui-protheus`
 
-O objetivo deste projeto nao e substituir o trabalho original, e sim:
+Tambem permanece no repositorio a skill legada:
 
-1. reaproveitar a ideia e a base conceitual do `advpl-specialist`
-2. converter esse conhecimento para o formato nativo de skills do Codex
-3. facilitar a instalacao e o uso pela comunidade ADVPL/TLPP que trabalha com Codex
+- `protheus-advpl-specialist`
 
-## O que esta incluido
-
-### Skill principal
-
-- `skills/protheus-advpl-specialist/SKILL.md`
-
-### Referencias separadas por contexto
-
-- `references/code-generation.md`
-- `references/migration.md`
-- `references/debugging.md`
-- `references/embedded-sql.md`
-- `references/protheus-reference.md`
-- `references/rest-po-ui.md`
-
-### Metadados de interface
-
-- `agents/openai.yaml`
-
-### Scripts de instalacao
-
-- `scripts/install.ps1`
-- `scripts/install.sh`
-
-## Estrutura do Projeto
+## Estrutura
 
 ```text
 advpl_codex/
-├── README.md
-├── LICENSE
-├── scripts/
-│   ├── install.ps1
-│   └── install.sh
-├── examples/
-│   └── protheus-rest-po-ui/
-│       ├── backend/
-│       ├── contract/
-│       └── frontend/
-└── skills/
-    └── protheus-advpl-specialist/
-        ├── SKILL.md
-        ├── agents/
-        │   └── openai.yaml
-        └── references/
-            ├── code-generation.md
-            ├── migration.md
-            ├── debugging.md
-            ├── embedded-sql.md
-            ├── protheus-reference.md
-            └── rest-po-ui.md
+|-- README.md
+|-- LICENSE
+|-- scripts/
+|   |-- install.ps1
+|   `-- install.sh
+|-- examples/
+|   `-- protheus-rest-po-ui/
+`-- skills/
+    |-- README.md
+    |-- advpl-protheus/
+    |-- advpl-debugging/
+    |-- advpl-code-review/
+    |-- protheus-reference/
+    |-- embedded-sql/
+    |-- mvc-protheus/
+    |-- pontos-de-entrada-protheus/
+    |-- probat-testing/
+    |-- rest-protheus/
+    |-- tlpp-protheus/
+    |-- po-ui-protheus/
+    `-- protheus-advpl-specialist/
 ```
 
-## Exemplo Fim a Fim
+## O Que Cada Skill Faz
 
-O repositório agora inclui um exemplo completo em `examples/protheus-rest-po-ui/`:
+### Base geral
 
-- backend REST em ADVPL
-- backend REST em TLPP
-- contrato JSON para `clientes`
-- frontend Angular com PO-UI para listagem e formulario
+- `advpl-protheus`: skill guarda-chuva para tarefas gerais de ADVPL, TLPP e Protheus.
 
-Esse exemplo foi pensado como material de estudo e como base para adaptar em projetos reais.
+### Desenvolvimento e arquitetura
 
-## Referencias Recomendadas
+- `tlpp-protheus`: classes TLPP, namespaces, wrappers e migracao de `.prw` para `.tlpp`.
+- `mvc-protheus`: `MenuDef`, `ModelDef`, `ViewDef`, `FWExecView` e `FWMVCRotAuto`.
+- `rest-protheus`: APIs REST com `WsRestFul`, `FWRest` e anotacoes TLPP.
+- `po-ui-protheus`: apps Angular com PO-UI integradas ao backend Protheus e `FwCallApp`.
 
-Para evoluir os exemplos deste repositório, estas sao as referencias mais importantes:
+### Qualidade e manutencao
 
-- Documentacao oficial PO-UI Getting Started: https://po-ui.io/guides/getting-started
-- Repositorio oficial PO-UI Angular: https://github.com/po-ui/po-angular
-- Exemplo oficial PO-UI Sample Conference: https://github.com/po-ui/po-sample-conference
-- Documentacao oficial TOTVS sobre `FwCallApp`: https://tdn.totvs.com/display/public/framework/FwCallApp+-+Abrindo+aplicativos+Web+no+Protheus
-- Exemplo comunitario de CRUD com PO-UI e Protheus: https://sempreju.com.br/crud-fornecedor-usando-po-uiangular-e-erp-protheus-part-1/
+- `advpl-debugging`: erros de compilacao, runtime, stack, locks e performance.
+- `advpl-code-review`: review com foco em bugs, risco de regressao, seguranca e modernizacao segura.
+- `probat-testing`: testes TLPP com ProBat.
+
+### Referencia tecnica
+
+- `protheus-reference`: funcoes nativas, framework, dicionario SX e restricoes.
+- `embedded-sql`: `BeginSQL`, `EndSQL`, `%table%`, `%xfilial%`, `%notDel%` e `TCQuery`.
+- `pontos-de-entrada-protheus`: pontos de entrada, `PARAMIXB`, retorno esperado e consulta ao TDN.
+
+Descricao detalhada por skill: [skills/README.md](skills/README.md)
 
 ## Instalacao
 
-### Instalacao manual
-
-Copie a pasta `skills/protheus-advpl-specialist` para:
-
-- Windows: `%USERPROFILE%\\.codex\\skills\\protheus-advpl-specialist`
-- Linux/macOS: `~/.codex/skills/protheus-advpl-specialist`
-
-### Instalacao por script
+### Instalar todas as skills
 
 PowerShell:
 
@@ -141,78 +101,65 @@ Bash:
 bash ./scripts/install.sh
 ```
 
+Os scripts copiam todas as pastas dentro de `skills/` para `~/.codex/skills`.
+
+### Instalacao manual
+
+Copie as pastas desejadas de `skills/` para:
+
+- Windows: `%USERPROFILE%\.codex\skills`
+- Linux/macOS: `~/.codex/skills`
+
+Exemplo:
+
+```text
+%USERPROFILE%\.codex\skills\advpl-debugging
+%USERPROFILE%\.codex\skills\po-ui-protheus
+```
+
+Depois reinicie a sessao do Codex para redescobrir os skills.
+
 ## Uso
 
 Exemplos de prompts:
 
 ```text
-Use $protheus-advpl-specialist para criar uma User Function de faturamento
-Use $protheus-advpl-specialist para migrar este .prw para TLPP
-Use $protheus-advpl-specialist para revisar este BeginSQL
-Use $protheus-advpl-specialist para diagnosticar erro de RecLock
-Use $protheus-advpl-specialist para explicar uma rotina MVC do Protheus
-Use $protheus-advpl-specialist para criar uma API REST em ADVPL para consumo no PO-UI
-Use $protheus-advpl-specialist para desenhar contrato backend Protheus + frontend PO-UI
+Use $advpl-debugging para analisar este erro de RecLock
+Use $protheus-reference para explicar a funcao FWExecView
+Use $embedded-sql para revisar este BeginSQL
+Use $mvc-protheus para criar MenuDef, ModelDef e ViewDef
+Use $pontos-de-entrada-protheus para implementar o ponto MT100LOK
+Use $probat-testing para gerar testes TLPP desta classe
+Use $rest-protheus para criar um endpoint de consulta de clientes
+Use $tlpp-protheus para migrar este .prw para .tlpp
+Use $po-ui-protheus para evoluir esta app Angular embarcada no Protheus
+Use $advpl-code-review para revisar este fonte legado
+Use $advpl-protheus para me ajudar numa rotina Protheus sem definir ainda o contexto
 ```
 
-## Contribuicao Desta Adaptacao
+## Publicacao e Atribuicao
 
-Esta adaptacao traz algumas contribuicoes especificas para o ecossistema Codex:
+Este repositorio:
 
-- empacotamento no formato de skill reutilizavel do Codex
-- separacao das referencias por tipo de tarefa para reduzir contexto carregado
-- instalacao simplificada por script
-- organizacao voltada ao uso em projetos reais com `.prw`, `.tlpp`, `.ch` e `.th`
-- suporte inicial para backend REST Protheus e frontend PO-UI
-- base inicial para futura expansao com mais conteudo do projeto original
+- adapta o conteudo do projeto `advpl-specialist` para o formato de skill do Codex
+- adiciona novas skills menores e mais especializadas
+- incorpora referencias praticas de um projeto real de PO-UI + Protheus
 
-## Creditos e Atribuicao
-
-Este projeto foi inspirado e parcialmente adaptado a partir de:
+Fontes principais utilizadas:
 
 - Projeto original: [`thalysjuvenal/advpl-specialist`](https://github.com/thalysjuvenal/advpl-specialist)
-- Autor original: **Thalys Juvenal**
-- Referencias praticas de integracao Protheus + PO-UI: [`dan-atilio`](https://github.com/dan-atilio)
-- Referencias oficiais PO-UI: [`po-ui/po-angular`](https://github.com/po-ui/po-angular) e [`po-ui/po-sample-conference`](https://github.com/po-ui/po-sample-conference)
-- Referencia oficial TOTVS para abertura de apps web no Protheus via `FwCallApp`: [TDN Framework](https://tdn.totvs.com/display/public/framework/FwCallApp+-+Abrindo+aplicativos+Web+no+Protheus)
-- Referencia comunitaria adicional de CRUD com Protheus + PO-UI: [Sem Preju](https://sempreju.com.br/crud-fornecedor-usando-po-uiangular-e-erp-protheus-part-1/)
+- Autor original: Thalys Juvenal
+- Projeto local de referencia para PO-UI: `po-ui/Financeiro/po-boleto`
 
-Reconhecemos que a ideia, a estrutura conceitual e parte da organizacao funcional partiram do trabalho original. Esta versao apresenta uma **adaptacao para o Codex**, com foco em:
-
-- formato de distribuicao compatível com skills do Codex
-- instalacao local em `~/.codex/skills`
-- reorganizacao do conteudo para invocacao progressiva
-
-Se o projeto original evoluir, este repositorio pode incorporar novas melhorias mantendo a atribuicao adequada.
-
-Tambem reconhecemos a contribuicao da comunidade Protheus e PO-UI, incluindo exemplos publicos e materiais compartilhados por **dan-atilio**, que ajudam a orientar fluxos praticos de integracao entre backend Protheus, frontend Angular e PO-UI.
-
-## Marcas e Direitos
-
-**TOTVS**, **Protheus**, **PO-UI** e demais nomes de produtos, plataformas, marcas e logotipos mencionados neste repositório pertencem aos seus respectivos titulares.
-
-Quando aplicavel, marcas, nomes comerciais e ativos relacionados ao ecossistema TOTVS pertencem a **TOTVS S.A.** e/ou a seus licenciadores.
-
-Este repositório e independente, de carater educacional e comunitario, sem vinculo oficial com a TOTVS. As referencias a marcas e produtos sao usadas apenas para fins de identificacao, compatibilidade e documentacao tecnica.
-
-## Contato
-
-Para contato sobre este repositório e suas adaptacoes para Codex:
-
-- Ricardo P. S. Patay
-- `ricardops34@hotmail.com`
+Cada skill adaptada inclui um arquivo `references/source-attribution.md` quando aplicavel.
 
 ## Roadmap
 
-- ampliar a base de referencias com mais exemplos praticos ADVPL/TLPP
-- ampliar a cobertura de REST Protheus e PO-UI com exemplos completos
-- incluir exemplos reais de MVC, REST e pontos de entrada
-- enriquecer o exemplo fim a fim com autenticacao e fluxos de exclusao
-- adicionar documentacao mais detalhada sobre TDN, SX e boas praticas
-- avaliar empacotamento adicional para distribuicao mais simples
+- adicionar mais exemplos de pontos de entrada reais por modulo
+- ampliar referencias de TLPP e REST com casos de autenticacao
+- incluir exemplos completos de PO-UI com publicacao no Protheus
+- revisar e padronizar o skill legado `protheus-advpl-specialist`
 
 ## Licenca
 
-Este repositório esta publicado sob a licenca [MIT](LICENSE).
-
-Sempre que reutilizar este material, mantenha tambem os creditos ao projeto original `advpl-specialist` e ao autor **Thalys Juvenal**.
+Este repositorio esta publicado sob a licenca [MIT](LICENSE).
