@@ -1,0 +1,4 @@
+interface:
+  display_name: "ADVPL TLPP Skill Template"
+  short_description: "Template de skill para Protheus ADVPL e TLPP"
+  default_prompt: "Use $advpl-tlpp-skill-template para criar ou adaptar um skill reutilizavel de ADVPL e TLPP para Protheus."
