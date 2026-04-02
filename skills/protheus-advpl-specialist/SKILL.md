@@ -28,6 +28,10 @@ Use this skill as the entry point for Protheus work. Keep the workflow lean: ide
 - For `BeginSQL`, `EndSQL`, `%table%`, `%notDel%`, `%xfilial%`, `%exp%`, `TCQuery`, or `TCSqlExec`, read `references/embedded-sql.md`.
 - For native functions, SX tables, MV parameters, REST framework conventions, or TDN-oriented lookup, read `references/protheus-reference.md`.
 
+## Official Documentation
+
+- TOTVS TDN (REST/TLPP reference): https://tdn.totvs.com/pages/viewpage.action?pageId=553337101
+
 ## Project Detection
 
 Treat the repository as Protheus-oriented when you find one or more of these signals:
@@ -43,3 +47,10 @@ Treat the repository as Protheus-oriented when you find one or more of these sig
 - Prefer concrete implementations over abstract advice when the user is asking for code.
 - Keep comments sparse and useful.
 - When uncertain about an SX field, index, or MV parameter, say so explicitly and avoid inventing dictionary metadata.
+
+## Native Code Rule
+
+- Prefer native ADVPL/TLPP constructs and established Protheus functions.
+- Avoid translation-like abstractions and unknown helper layers.
+- Avoid pass-through wrapper helpers when a direct call is clear and safe.
+- Keep implementation straightforward, explicit, and easy to audit in Protheus projects.
