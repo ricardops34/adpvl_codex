@@ -1,4 +1,4 @@
----
+﻿---
 name: protheus-advpl-specialist
 description: Specialist for TOTVS Protheus development with ADVPL and TLPP. Use when working on `.prw`, `.tlpp`, `.prx`, `.ch`, `.th` or Protheus-specific code and tasks such as generating routines, MVC, REST APIs, PO-UI integrations, pontos de entrada, embedded SQL, reviewing customizations, migrating legacy ADVPL to TLPP, debugging AppServer/runtime issues, or looking up Protheus framework and SX dictionary conventions.
 ---
@@ -30,7 +30,8 @@ Use this skill as the entry point for Protheus work. Keep the workflow lean: ide
 
 ## Official Documentation
 
-- TOTVS TDN (REST/TLPP reference): https://tdn.totvs.com/pages/viewpage.action?pageId=553337101
+- TOTVS TDN (TLPP base): https://tdn.totvs.com/display/tec/TLPP
+- TOTVS TDN (REST/TLPP annotation migration): https://tdn.totvs.com/pages/viewpage.action?pageId=553337101
 
 ## Project Detection
 
@@ -54,3 +55,5 @@ Treat the repository as Protheus-oriented when you find one or more of these sig
 - Avoid translation-like abstractions and unknown helper layers.
 - Avoid pass-through wrapper helpers when a direct call is clear and safe.
 - Keep implementation straightforward, explicit, and easy to audit in Protheus projects.
+
+
