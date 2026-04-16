@@ -23,6 +23,8 @@ Use este skill para consultas tecnicas sobre funcoes, dicionario e padroes do ec
 - `references/rest-api-reference.md` para padroes REST no Protheus.
 - `references/restricted-functions.md` para funcoes/classes que nao devem ser usadas em customizacao.
 - `references/source-attribution.md` para a origem do material.
+- `https://tdn.totvs.com/display/tec/AdvPL` como fonte oficial de linguagem e recursos ADVPL.
+- `https://tdn.totvs.com/display/tec/TLPP` como fonte oficial de linguagem e recursos TLPP.
 
 ## Guardrails
 

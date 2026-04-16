@@ -55,6 +55,9 @@ Para consulta de funcoes e dicionario:
 Antes de recomendar qualquer funcao, verificar `references/restricted-functions.md`.
 
 Se a informacao nao estiver na referencia local e a tarefa exigir precisao atualizada, buscar no TDN/TOTVS usando fontes oficiais.
+Priorizar:
+- `https://tdn.totvs.com/display/tec/AdvPL`
+- `https://tdn.totvs.com/display/tec/TLPP`
 
 ### Embedded SQL
 
@@ -88,3 +91,5 @@ Para SQL em ADVPL/TLPP:
 - `references/rest-api-reference.md`
 - `references/embedded-sql.md`
 - `references/source-attribution.md`
+- `TDN AdvPL (oficial): https://tdn.totvs.com/display/tec/AdvPL`
+- `TDN TLPP (oficial): https://tdn.totvs.com/display/tec/TLPP`

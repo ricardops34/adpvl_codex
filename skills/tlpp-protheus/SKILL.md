@@ -18,6 +18,9 @@ Use este skill para criacao, revisao e migracao de codigo TLPP no Protheus, com 
 5. Ler `references/migration-rules.md` e `references/migration-checklist.md` para migracao.
 6. Preservar compatibilidade com chamadores legados quando necessario por meio de wrapper `.prw`.
 7. Validar includes `.th`, namespace, uso de `::` e separacao de responsabilidades.
+8. Em duvida de sintaxe/comportamento, consultar documentacao oficial TOTVS:
+   - `https://tdn.totvs.com/display/tec/TLPP`
+   - `https://tdn.totvs.com/display/tec/AdvPL`
 
 ## Priorities
 
@@ -40,3 +43,5 @@ Use este skill para criacao, revisao e migracao de codigo TLPP no Protheus, com 
 - `references/migration-rules.md`
 - `references/migration-checklist.md`
 - `references/source-attribution.md`
+- `TDN TLPP (oficial): https://tdn.totvs.com/display/tec/TLPP`
+- `TDN AdvPL (oficial): https://tdn.totvs.com/display/tec/AdvPL`

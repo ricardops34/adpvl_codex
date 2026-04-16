@@ -24,3 +24,6 @@ Observacao:
 
 - A estrutura original e um plugin para Claude Code.
 - Esta adaptacao reorganiza o conteudo para o formato de skill nativo do Codex.
+- Referencias oficiais adicionais TOTVS TDN:
+- `https://tdn.totvs.com/display/tec/AdvPL`
+- `https://tdn.totvs.com/display/tec/TLPP`
