@@ -5,37 +5,50 @@ description: Desenvolvimento e migracao de codigo TLPP no TOTVS Protheus. Use qu
 
 # TLPP Protheus
 
-## Overview
+## Quando usar
 
 Use este skill para criacao, revisao e migracao de codigo TLPP no Protheus, com foco em namespaces, classes, encapsulamento e convivencia segura com codigo ADVPL legado.
 
-## Workflow
+## Quando nao usar
 
-1. Identificar se a tarefa e criacao de classe, ajuste de classe existente ou migracao de ADVPL para TLPP.
-2. Sempre consultar `doc/referencias-advpl-tlpp.md` na raiz do repositorio alvo antes de propor implementacao.
-3. Se `doc/referencias-advpl-tlpp.md` nao existir, criar o arquivo com base minima de referencias e padroes antes de continuar.
-4. Ler `references/templates-classes.md` para geracao de classes novas.
-5. Ler `references/migration-rules.md` e `references/migration-checklist.md` para migracao.
-6. Preservar compatibilidade com chamadores legados quando necessario por meio de wrapper `.prw`.
-7. Validar includes `.th`, namespace, uso de `::` e separacao de responsabilidades.
-8. Em duvida de sintaxe/comportamento, consultar documentacao oficial TOTVS:
-   - `https://tdn.totvs.com/display/tec/TLPP`
-   - `https://tdn.totvs.com/display/tec/AdvPL`
+- debug geral de ADVPL sem foco em classes TLPP: prefira `advpl-protheus`
+- consulta de sintaxe/documentacao sem mudanca de codigo: prefira `protheus-reference`
 
-## Priorities
+## Fluxo rapido (eficiente)
 
-- Preferir `#Include "tlpp-core.th"` e demais `.th` adequados ao contexto.
-- Usar namespaces coerentes, em minusculas e sem underscores.
+1. Classificar: `classe nova`, `ajuste`, `migracao`.
+2. Consultar `doc/referencias-advpl-tlpp.md` do repositorio alvo.
+3. Ler somente a referencia necessaria:
+   - classe nova: `references/templates-classes.md`
+   - migracao: `references/migration-rules.md`, `references/migration-checklist.md`
+4. Aplicar padrao de saida objetivo (abaixo) e checagem de compatibilidade.
+
+## Formato de saida
+
+- estrutura proposta (classe/metodos/dados)
+- patch/trechos alterados
+- impactos em compatibilidade
+- checklist de validacao final
+
+## Regras de prioridade
+
+- Preferir `#Include "tlpp-core.th"` e demais `.th` adequados.
+- Usar namespace coerente, em minusculas e sem underscore.
 - Manter uma classe por arquivo quando fizer sentido.
-- Migrar `Static Function` para metodo privado e `Private/Public` para `data` ou parametros.
-- Preservar `GetArea()` e `RestArea()` em trechos com acesso a banco.
+- Migrar `Static Function` para metodo privado e `Private/Public` para `data`/parametros.
+- Preservar `GetArea()` e `RestArea()` quando houver acesso a banco.
 
-## Guardrails
+## Guardrails criticos
 
 - Nao usar `using namespace tlpp.*` como substituto de `.th` quando a recomendacao for include.
 - Nao remover `User Function` legado sem avaliar wrapper de compatibilidade.
 - Nao migrar estrutura sem preservar comportamento funcional.
-- Sempre alinhar decisoes tecnicas ao arquivo `doc/referencias-advpl-tlpp.md` do repositorio em uso.
+- Sempre alinhar decisoes ao arquivo `doc/referencias-advpl-tlpp.md`.
+
+## Fontes oficiais
+
+- `https://tdn.totvs.com/display/tec/TLPP`
+- `https://tdn.totvs.com/display/tec/AdvPL`
 
 ## References
 

@@ -5,9 +5,9 @@ description: Assistente para ADVPL, TLPP e TOTVS Protheus. Use quando Codex prec
 
 # ADVPL Protheus
 
-## Overview
+## Quando usar
 
-Use este skill para tarefas de desenvolvimento no ecossistema TOTVS Protheus com foco em:
+Use este skill para:
 
 - geracao e ajuste de rotinas ADVPL/TLPP
 - debugging de erros de compilacao, runtime, locks e performance
@@ -15,67 +15,64 @@ Use este skill para tarefas de desenvolvimento no ecossistema TOTVS Protheus com
 - consultas de funcoes nativas, dicionario SX e REST APIs
 - escrita e revisao de Embedded SQL com `BeginSQL ... EndSQL`
 
-## Workflow
+## Quando nao usar
 
-1. Identificar o tipo de tarefa: geracao, debugging, review, explicacao, SQL, documentacao ou referencia.
-2. Ler apenas os arquivos de `references/` necessarios para a tarefa atual.
-3. Priorizar padroes compativeis com Protheus e evitar sugerir APIs internas ou restritas.
-4. Quando mexer com banco, filial ou dicionario, validar filtros de filial, `D_E_L_E_T_`, indices e aliases.
-5. Ao responder, explicar o motivo tecnico da recomendacao e apontar riscos de compatibilidade quando houver.
+- tarefas focadas apenas em TLPP orientado a classes: prefira `tlpp-protheus`
+- consulta pontual de sintaxe/referencia sem alteracao de codigo: prefira `protheus-reference`
 
-## Task Guide
+## Fluxo rapido (eficiente)
 
-### Debugging
+1. Classificar a tarefa: `geracao`, `debug`, `review`, `referencia` ou `sql`.
+2. Ler somente os arquivos de `references/` do tipo identificado.
+3. Seguir ordem de confianca: `referencia local -> TDN oficial -> inferencia`.
+4. Responder no formato padrao da tarefa (ver abaixo), sem texto redundante.
 
-Para erros de compilacao e runtime:
+## Formato de saida por tarefa
 
-- consultar `references/common-errors.md`
-- consultar `references/performance-tips.md` quando houver lentidao
-- sugerir instrumentacao com `Conout`, `FWLogMsg` ou tratamento controlado de erro
-- verificar `Local`, alias aberto, `DbSelectArea`, `DbSetOrder`, `DbSeek`, `RecLock` e `MsUnlock`
+### Debug
+
+- diagnostico curto (causa provavel)
+- correcoes propostas (objetivas)
+- riscos de regressao
+- checklist de validacao
 
 ### Code Review
 
-Para revisao e refatoracao:
+- findings por severidade (primeiro bugs e risco de dados)
+- cada finding com arquivo/trecho e impacto
+- lacunas de teste
+- resumo curto no final
 
-- consultar `references/rules-best-practices.md`
-- consultar `references/rules-performance.md`
-- consultar `references/rules-security.md`
-- consultar `references/rules-modernization.md`
-- priorizar bugs, regressao comportamental, risco de dados e compatibilidade com o framework TOTVS
+### Geracao/Refatoracao
 
-### Reference Lookup
+- patch proposto
+- justificativa tecnica curta
+- compatibilidade com legado
 
-Para consulta de funcoes e dicionario:
+### SQL
 
-- usar `references/native-functions.md` para sintaxe e exemplos
-- usar `references/sx-dictionary.md` para SX1, SX2, SX3, SX5, SX6, SX7, SX9 e SIX
-- usar `references/rest-api-reference.md` para padroes REST
+- query final
+- validacoes (`%xfilial%`, `%notDel%`, alias, indice)
+- risco/performance
 
-Antes de recomendar qualquer funcao, verificar `references/restricted-functions.md`.
+## Mapa de referencias (carregamento minimo)
 
-Se a informacao nao estiver na referencia local e a tarefa exigir precisao atualizada, buscar no TDN/TOTVS usando fontes oficiais.
-Priorizar:
+- debug: `references/common-errors.md`, `references/performance-tips.md`
+- review: `references/rules-best-practices.md`, `references/rules-performance.md`, `references/rules-security.md`, `references/rules-modernization.md`
+- funcoes/SX/REST: `references/native-functions.md`, `references/sx-dictionary.md`, `references/rest-api-reference.md`
+- SQL: `references/embedded-sql.md`
+- restricoes: `references/restricted-functions.md`
+
+Se faltar base local, priorizar:
 - `https://tdn.totvs.com/display/tec/AdvPL`
 - `https://tdn.totvs.com/display/tec/TLPP`
 
-### Embedded SQL
-
-Para SQL em ADVPL/TLPP:
-
-- consultar `references/embedded-sql.md`
-- preferir `BeginSQL ... EndSQL` em vez de concatenacao manual com `TCQuery`
-- sempre considerar `%table%`, `%xfilial%`, `%notDel%` e `%exp%`
-- evitar `SELECT *`
-- fechar alias apos uso
-
-## Guardrails
+## Guardrails criticos
 
 - Nao sugerir funcoes marcadas como restritas quando houver alternativa suportada.
 - Nao ignorar controle de filial nem exclusao logica.
 - Nao assumir que codigo legado pode ser "modernizado" sem preservar comportamento.
-- Em sugestoes de DML SQL, sinalizar risco e preferir os mecanismos suportados pelo ambiente.
-- Em revisoes, priorizar primeiro erros reais e riscos concretos antes de estilo.
+- Em SQL, sinalizar risco de DML e preferir mecanismos suportados pelo ambiente.
 
 ## References
 

@@ -13,6 +13,21 @@ Este repositorio adapta para o formato de skills do Codex a proposta do projeto 
 
 O repositorio agora entrega um conjunto de skills especializados para uso incremental no Codex. Em vez de uma unica skill grande, a base foi separada por contexto para facilitar o disparo correto e reduzir contexto desnecessario.
 
+## Melhorias de eficiencia no Codex (16/04/2026)
+
+Foram aplicadas otimizacoes nas skills `advpl-protheus`, `tlpp-protheus` e `protheus-reference` para reduzir contexto e aumentar assertividade:
+
+- secoes explicitas de `quando usar` e `quando nao usar`
+- fluxo rapido de decisao com ordem de consulta: referencia local -> TDN oficial -> inferencia
+- formato padrao de resposta por tipo de tarefa (debug, review, geracao, referencia)
+- separacao de guardrails criticos para diminuir ruído
+- mapeamento minimo de referencias para evitar leitura desnecessaria
+- inclusao e priorizacao das fontes oficiais:
+  - `https://tdn.totvs.com/display/tec/AdvPL`
+  - `https://tdn.totvs.com/display/tec/TLPP`
+
+Resultado esperado: respostas mais objetivas, menor verbosidade, menor custo de contexto e melhor roteamento entre skills.
+
 Skills atualmente incluidos:
 
 - `advpl-protheus`

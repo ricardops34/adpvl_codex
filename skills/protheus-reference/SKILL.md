@@ -5,18 +5,23 @@ description: Referencia de funcoes nativas, dicionario SX e integracoes do TOTVS
 
 # Protheus Reference
 
-## Overview
+## Quando usar
 
 Use este skill para consultas tecnicas sobre funcoes, dicionario e padroes do ecossistema Protheus, priorizando referencia local antes de busca online.
 
-## Workflow
+## Quando nao usar
 
-1. Identificar se a consulta e sobre funcao, SX, REST ou restricao de uso.
-2. Ler somente o arquivo de referencia correspondente.
-3. Antes de sugerir uma funcao, verificar se ela aparece como restrita.
-4. Se a referencia local nao bastar e a precisao atualizada importar, buscar em fontes oficiais TOTVS.
+- quando o pedido principal for implementar/refatorar codigo completo
+- quando o foco for migracao orientada a classes TLPP
 
-## Reference Use
+## Fluxo rapido (eficiente)
+
+1. Identificar tipo: `funcao`, `SX`, `REST`, `restricao`.
+2. Ler um unico arquivo de referencia por vez.
+3. Verificar restricao antes de recomendar API.
+4. Se necessario, complementar com TDN oficial.
+
+## Mapa rapido
 
 - `references/native-functions.md` para sintaxe, parametros e exemplos.
 - `references/sx-dictionary.md` para tabelas SX e SIX.
@@ -26,7 +31,15 @@ Use este skill para consultas tecnicas sobre funcoes, dicionario e padroes do ec
 - `https://tdn.totvs.com/display/tec/AdvPL` como fonte oficial de linguagem e recursos ADVPL.
 - `https://tdn.totvs.com/display/tec/TLPP` como fonte oficial de linguagem e recursos TLPP.
 
-## Guardrails
+## Formato de resposta
+
+- sintaxe
+- finalidade
+- parametros
+- retorno
+- observacoes de uso/risco
+
+## Guardrails criticos
 
 - Nao recomendar funcao restrita sem avisar explicitamente e sem apontar alternativa.
 - Nao presumir comportamento de filial, dicionario ou framework sem conferir a referencia.
