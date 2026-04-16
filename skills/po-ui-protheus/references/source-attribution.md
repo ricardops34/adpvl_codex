@@ -18,3 +18,8 @@ Objetivo da adaptacao:
 - orientar desenvolvimento de apps PO-UI integradas ao Protheus
 - preservar separacao entre frontend Angular/PO-UI e backend ADVPL
 - reaproveitar padroes reais do projeto po-boleto
+
+Referencia complementar do ecossistema de skills:
+
+- Projeto original: `thalysjuvenal/advpl-specialist`
+- URL: `https://github.com/thalysjuvenal/advpl-specialist`
