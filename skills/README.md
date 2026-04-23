@@ -14,7 +14,7 @@ Este diretorio contem as skills do repositorio `advpl_codex` prontas para copiar
 - `probat-testing`: testes unitarios TLPP com ProBat.
 - `rest-protheus`: APIs REST com `WsRestFul`, `FWRest` e anotacoes TLPP.
 - `tlpp-protheus`: classes TLPP, namespaces e migracao de `.prw` para `.tlpp`.
-- `po-ui-protheus`: Angular + PO-UI integrados ao backend Protheus e `FwCallApp`.
+- `po-ui-protheus`: Angular + PO-UI integrados ao backend Protheus e `FwCallApp`, com uso de IA tools do PO-UI (`@po-ui/mcp`, `llms.txt`, `llms-full.txt` e suporte complementar via Context7).
 - `protheus-advpl-specialist`: skill legada consolidada, mantida por compatibilidade.
 
 ## Instalacao

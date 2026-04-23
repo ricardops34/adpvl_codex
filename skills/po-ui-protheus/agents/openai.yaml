@@ -1,3 +1,4 @@
 interface:
   display_name: "PO-UI Protheus"
-  short_description: "Angular PO-UI com Protheus"
+  short_description: "Angular PO-UI com Protheus e IA tools"
+  default_prompt: "Use o skill PO-UI Protheus para implementar ou revisar frontend Angular com PO-UI integrado ao Protheus, priorizando MCP oficial (@po-ui/mcp) para consultar componentes/guias e usando llms.txt como fallback."
