@@ -13,6 +13,13 @@ Este repositorio adapta para o formato de skills do Codex a proposta do projeto 
 
 O repositorio agora entrega um conjunto de skills especializados para uso incremental no Codex. Em vez de uma unica skill grande, a base foi separada por contexto para facilitar o disparo correto e reduzir contexto desnecessario.
 
+### Melhorias recentes (po-ui-protheus)
+
+- Inclusao de fluxo de trabalho com prioridade para MCP oficial do PO-UI (`@po-ui/mcp`).
+- Inclusao de fallback para contexto LLM com `llms.txt` e `llms-full.txt` oficiais do PO-UI.
+- Documentacao de apoio para uso complementar via Context7.
+- Referencia dedicada em `skills/po-ui-protheus/references/ia-tools-mcp-llms.md`.
+
 ## Melhorias de eficiencia no Codex (16/04/2026)
 
 Foram aplicadas otimizacoes nas skills `advpl-protheus`, `tlpp-protheus` e `protheus-reference` para reduzir contexto e aumentar assertividade:
