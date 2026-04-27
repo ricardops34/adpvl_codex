@@ -17,6 +17,19 @@ Este diretorio contem as skills do repositorio `advpl_codex` prontas para copiar
 - `po-ui-protheus`: Angular + PO-UI integrados ao backend Protheus e `FwCallApp`, com uso de IA tools do PO-UI (`@po-ui/mcp`, `llms.txt`, `llms-full.txt` e suporte complementar via Context7).
 - `protheus-advpl-specialist`: skill legada consolidada, mantida por compatibilidade.
 
+## Historico de melhorias
+
+### Melhorias recentes (po-ui-protheus)
+
+- Inclusao de fluxo de trabalho com prioridade para MCP oficial do PO-UI (`@po-ui/mcp`).
+- Inclusao de fallback para contexto LLM com `llms.txt` e `llms-full.txt` oficiais do PO-UI.
+- Documentacao de apoio para uso complementar via Context7.
+- Referencia dedicada em `skills/po-ui-protheus/references/ia-tools-mcp-llms.md`.
+
+### Melhorias de eficiencia no Codex (16/04/2026)
+
+- Padronizacao do README para registrar melhorias em formato de historico, sem remover entradas anteriores.
+
 ## Instalacao
 
 Para instalar tudo de uma vez, use:
